@@ -1,6 +1,7 @@
 ﻿@page
 @model OdeToFood.Pages.Restaurants.ListModel
 @{
+    ViewData["Title"] = "List";
 }
 
 
@@ -12,7 +13,7 @@
         <div class="form-group">
 
             <div class="input-group-append">
-                <input type="search" class="form-control mr-4" value="" name="searchTerm" />
+                <input type="search" class="form-control mr-4" asp-for="SearchTerm" />
                 <button class="btn btn-secondary">
                     @* <i class="fas fa-search"></i>*@
                     Search
@@ -26,6 +27,11 @@
             <td>@restaurant.Name</td>
             <td>@restaurant.Location</td>
             <td>@restaurant.Cuisine</td>
+            <td>
+                <a class="btn btn-sm btn-outline-dark" asp-page="Detail" asp-route-id="@restaurant.Id">
+                    Details
+                </a>
+            </td>
         </tr>
     }
 </table>
