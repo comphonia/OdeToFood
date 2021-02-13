@@ -1,0 +1,13 @@
+﻿@page "{id:int}"
+@model OdeToFood.Pages.Customers.DetailModel
+@{
+    ViewData["Title"] = "Customer Detail";
+}
+
+<h3>Customer: @Model.Customer.CustomerId</h3>
+<ul>
+    <li>FirstName: @Model.Customer.FirstName</li>
+    <li>LastName: @Model.Customer.LastName</li>
+    <li>PhoneNumber: @Model.Customer.PhoneNumber</li>
+</ul>
+<a class="btn btn-outline-dark" asp-page="List">View all customers</a>
