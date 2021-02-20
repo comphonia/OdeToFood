@@ -6,6 +6,8 @@
     <title>@ViewData["Title"] - OdeToFood</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
+    <script defer src="~/lib/font-awesome/js/all.min.js"></script>
 </head>
 <body>
     <header>
@@ -20,8 +22,12 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>                        <li class="nav-item">
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Restaurants/List">Restaurants</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Customers/List">Customers</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
@@ -39,7 +45,9 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - OdeToFood - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            <vc:restaurant-count />
+            &copy; @DateTime.Today.Year - OdeToFood - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            <div><img src="~/OdeToFood.png" alt="" /></div>
         </div>
     </footer>
 

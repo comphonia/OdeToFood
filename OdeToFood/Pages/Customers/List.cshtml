@@ -1,0 +1,42 @@
+﻿@page
+@model OdeToFood.Pages.Customers.ListModel
+@{
+    ViewData["Title"] = "Customers";
+}
+
+<h3>Customers</h3>
+
+<form method="get">
+    <div class="form-group">
+
+        <div class="input-group-append">
+            <input type="search" class="form-control mr-4" asp-for="SearchTerm" />
+            <button class="btn btn-secondary">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>CustomerId</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>PhoneNumber</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model.Customers)
+        {
+            <tr>
+                <td>@customer.CustomerId</td>
+                <td>@customer.FirstName</td>
+                <td>@customer.LastName</td>
+                <td>@customer.PhoneNumber</td>
+                <td><a class="btn btn-outline-dark" asp-page="Detail" asp-route-id="@customer.CustomerId"> Details</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
