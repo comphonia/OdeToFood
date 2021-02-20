@@ -10,6 +10,7 @@ namespace OdeToFood.Data
         Restaurant UpdateRestaurant(Restaurant updatedRestaurant);
         Restaurant AddRestaurant(Restaurant newRestaurant);
         Restaurant DeleteRestaurant(int id);
+        int GetRestaurantCount();
         int Commit();
         IEnumerable<Customer> GetCustomersByName(string name);
         Customer GetCustomerById(int id);

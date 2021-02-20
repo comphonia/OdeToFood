@@ -10,5 +10,6 @@ namespace OdeToFood.Data
 
         }
         public DbSet<Restaurant> Restaurants { get; set; }
+        public DbSet<Customer> Customers { get; set; }
     }
 }

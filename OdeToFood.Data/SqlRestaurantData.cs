@@ -49,6 +49,11 @@ namespace OdeToFood.Data
             return restaurant;
         }
 
+        public int GetRestaurantCount()
+        {
+            return dbContext.Restaurants.Count();
+        }
+
         public int Commit()
         {
             return dbContext.SaveChanges();
@@ -56,12 +61,15 @@ namespace OdeToFood.Data
 
         public IEnumerable<Customer> GetCustomersByName(string name)
         {
-            throw new System.NotImplementedException();
+            var query = dbContext.Customers
+                .Where(c => c.FirstName.StartsWith(name) || string.IsNullOrEmpty(name))
+                .OrderBy(c => c.FirstName).Select(e => e);
+            return query;
         }
 
         public Customer GetCustomerById(int id)
         {
-            throw new System.NotImplementedException();
+            return dbContext.Customers.Find(id);
         }
     }
 }
